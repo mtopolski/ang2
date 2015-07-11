@@ -1,12 +1,16 @@
 function AppComponent() {
 	this.todos = [];
 	this.addTodo = function(todo) {
-		this.todos.push(todo);
+		if (todo.length > 0) {
+			this.todos.push(todo);
+		}
 	};
 	this.doneTyping = function($event) {
 		if($event.which === 13) {
-			this.addTodo($event.target.value);
-			$event.target.value = null;
+			// if ($event.target.value.length > 0) {
+				this.addTodo($event.target.value);
+				$event.target.value = null;
+			// }
 		}
 	}
 }
